@@ -80,13 +80,14 @@ class Luhn:
                     soma+=parc-9
                 else:
                     soma+=parc
-        print(soma)
         return (10 - (soma%10))%10
     @classmethod
     def random_number(cls,number):
-        number = random.randint(10**number,(10**number+1)-1)
+        numbers = list("0123456789")
+        result = '' 
+        for i in range(number):
+            result += numbers[random.randint(0,len(numbers)-1)]
         verification = cls.calculate_numb_dir(number)
         return Luhn(number,verification)
-    
         
     
