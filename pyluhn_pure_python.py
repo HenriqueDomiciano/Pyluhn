@@ -5,10 +5,10 @@ class Luhn:
     def __init__(self,digit,verification = None):
         self.digit = digit
         if verification == None:
-            self.verification = self.true_ver = self.calculate_numb()
+            self.verification = self.true_ver = self.calculate_number()
         else:
             self.verification = verification
-            self.true_ver = self.calculate_numb()
+            self.true_ver = self.calculate_number()
             if self.true_ver != self.verification:
                 self.verification = self.true_ver
 
@@ -29,12 +29,14 @@ class Luhn:
     def __add__(self,other):
         result = int(self.digit)+int(other.digit)
         return Luhn(result)
+    
     def __sub__(self,other):
         result = int(self.digit)+int(other.digit)
         if result<=0:
             raise ValueError('Subtraction of Numbers must be non negative')
         else:
             return Luhn(result)
+    
     def __mul__(self,other):
         result = int(self.digit)*int(other.digit)
         return Luhn(result)
@@ -68,7 +70,7 @@ class Luhn:
         return (10 - (soma%10))%10
     
     
-    def calculate_numb(self):
+    def calculate_number(self):
         soma,parc = 0,0 
         digitos  = [int(i) for i in list(str(self.digit))]
         for i,digi in enumerate(digitos):
@@ -81,6 +83,7 @@ class Luhn:
                 else:
                     soma+=parc
         return (10 - (soma%10))%10
+    
     @classmethod
     def random_number(cls,number):
         numbers = list("0123456789")

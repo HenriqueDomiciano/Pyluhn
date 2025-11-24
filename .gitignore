@@ -1,0 +1,16 @@
+# Cython-generated files
+*.c
+*.cpp
+*.so
+*.pyd
+*.html
+*pyc
+*__pycache__
+__pycache__
+
+# Build directories and artifacts
+build/
+dist/
+.eggs/
+*.egg-info/
+venv/
