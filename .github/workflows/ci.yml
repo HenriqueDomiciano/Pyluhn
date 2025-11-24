@@ -16,7 +16,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        python-version: ['3.9', '3.10', '3.11']
+        python-version: ['3.10', '3.11']
 
     steps:
     - name: ⬇️ Checkout code
@@ -45,6 +45,3 @@ jobs:
     
     - name: ✅ Run Tests
       run: pytest --cov=your_package_name --cov-report=xml
-
-    - name: 📦 Create Source Distribution (sdist) and Wheel (bdist_wheel)
-      run: python -m build
