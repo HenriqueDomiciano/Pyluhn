@@ -43,12 +43,6 @@ jobs:
     - name: ✅ Run Tests
       run: pytest --cov=your_package_name --cov-report=xml
 
-    - name: 📤 Upload Build Artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: dist-files
-        path: dist/
-
   release:
     name: Publish Release
     runs-on: ubuntu-latest
@@ -56,14 +50,6 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/v')
 
     steps:
-    - name: ⬇️ Checkout code
-      uses: actions/checkout@v4
-      
-    - name: ⬇️ Download Build Artifacts
-      uses: actions/download-artifact@v4
-      with:
-        name: dist-files
-        path: dist/
 
     - name: 🚀 Create GitHub Release
       uses: softprops/action-gh-release@v2
