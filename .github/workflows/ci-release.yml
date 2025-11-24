@@ -3,15 +3,12 @@ name: Cython Build, Test, and Release
 on:
   push:
     branches:
-      - main
       - master
     tags:
-      - 'v[0-9]+.[0-9]+.[0-9]+*' 
+      - 'v*' 
   pull_request:
     branches:
-      - main
       - master
-  workflow_dispatch: 
 
 jobs:
   build-and-test:
@@ -45,11 +42,11 @@ jobs:
     - name: 🛠️ Build Cython Extensions (e.g., via setup.py install/develop)
       run: python setup.py build_ext --inplace
 
+    - name: install package 
+      run : pip install .
+  
     - name: ✅ Run Tests
       run: pytest --cov=your_package_name --cov-report=xml
-
-    - name: 📦 Create Source Distribution (sdist) and Wheel (bdist_wheel)
-      run: python -m build
 
     - name: 📤 Upload Build Artifacts
       uses: actions/upload-artifact@v4

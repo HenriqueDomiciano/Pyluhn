@@ -4,7 +4,7 @@ from Cython.Build import cythonize
 extensions = [
     Extension(
         "pyluhn.pyluhn", # This is the full module path (package_name.module_name)
-        ["pyluhn/pyluhn.pyx"], # Path to your source file relative to setup.py
+        ["./pyluhn/pyluhn.pyx"], # Path to your source file relative to setup.py
     )
 ]
 

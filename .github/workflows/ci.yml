@@ -1,3 +1,4 @@
+name : "CI continuos workflow"
 on:
   push:
     branches:
@@ -39,6 +40,9 @@ jobs:
     - name: 🛠️ Build Cython Extensions (e.g., via setup.py install/develop)
       run: python setup.py build_ext --inplace
 
+    - name : "Build python project "
+      run : "pip install ."
+    
     - name: ✅ Run Tests
       run: pytest --cov=your_package_name --cov-report=xml
 
