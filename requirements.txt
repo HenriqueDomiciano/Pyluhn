@@ -3,7 +3,10 @@ Cython==3.2.1
 iniconfig==2.3.0
 packaging==25.0
 pluggy==1.6.0
+py-cpuinfo==9.0.0
 Pygments==2.19.2
+pyluhn @ file:///home/henrique/Pyluhn
 pyproject_hooks==1.2.0
 pytest==9.0.1
+pytest-benchmark==5.2.3
 setuptools==80.9.0
