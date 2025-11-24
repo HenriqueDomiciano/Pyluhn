@@ -2,8 +2,6 @@ name: Cython Build, Test, and Release
 
 on:
   push:
-    branches:
-      - master
     tags:
       - 'v*'
 
