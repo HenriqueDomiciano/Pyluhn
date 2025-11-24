@@ -8,9 +8,8 @@ class Luhn:
         """
         Verify if digit is an valid Luhn number
         """
-        digit = self.digit
-        cdef int verification = digit%10
-        cdef long long digit_c = int(digit/10)
+        cdef int verification = self.digit%10
+        cdef unsigned long long digit_c = self.digit/10
         true = Luhn.calculate_luhn_number(digit_c)
         return true==verification   
 
@@ -44,7 +43,7 @@ class Luhn:
             i+=1
         final_result = int(result)
         verification = Luhn.calculate_luhn_number(final_result)
-        digits = int(final_result) * 10 + verification
+        digits  = int(str(final_result) + str(verification))
         return cls(digits)
     
         

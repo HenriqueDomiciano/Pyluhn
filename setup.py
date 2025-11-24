@@ -10,7 +10,7 @@ extensions = [
 
 setup(
     name="pyluhn",
-    version="0.1.0",
+    version="0.1.1",
     packages=["pyluhn"],
     ext_modules=cythonize(extensions, compiler_directives={'language_level': 3}),
     
