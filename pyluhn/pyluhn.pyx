@@ -12,8 +12,7 @@ cdef class Luhn:
         """
         cdef int verification = <int>(self.digit%10)
         cdef unsigned long long digit_c = self.digit//10
-        true = Luhn.calculate_luhn_number(digit_c)
-        return true==verification   
+        return verification == Luhn.calculate_luhn_number(digit_c)
 
     @staticmethod
     cdef int calculate_luhn_number(unsigned long long number):
@@ -33,17 +32,14 @@ cdef class Luhn:
     
     @classmethod
     def random_number(cls,int number_size)->"Luhn":
-        cdef int b  = int(number_size)
-        cdef int i = 0
-        final_result = 0 
-        result = '' 
-        while i<b:
-            result += str(rand()%10)
-            i+=1
-        final_result = int(result)
+        cdef unsigned long long final_result = 0 
+        cdef int verification 
+        cdef unsigned long long final_number   
+        for _ in range(number_size - 1):
+            final_result = final_result * 10 + rand()%10
         verification = Luhn.calculate_luhn_number(final_result)
-        digits  = 10 * final_result + verification
-        return cls(digits)
+        final_number  = 10 * final_result + verification
+        return cls(final_number)
     
         
     

@@ -1,7 +1,7 @@
 from pyluhn import pyluhn 
 
 
-def validate_luhn(): 
+def validate_luhn_random_number(): 
     digit = pyluhn.Luhn.random_number(18)
     assert(digit.verify() == True)
 
@@ -25,5 +25,4 @@ class TestLuhnAlgo:
         assert(digit.verify() == True)
 
     def test_random_number_validation(self,benchmark):
-        benchmark.pedantic(validate_luhn, warmup_rounds=10, iterations=100, rounds=1000)
-
+        benchmark.pedantic(validate_luhn_random_number, warmup_rounds=20, iterations=100, rounds=1000)
