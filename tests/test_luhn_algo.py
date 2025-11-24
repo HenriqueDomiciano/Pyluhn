@@ -2,7 +2,7 @@ from pyluhn import pyluhn
 
 
 def validate_luhn(): 
-    digit = pyluhn.Luhn.random_number(15)
+    digit = pyluhn.Luhn.random_number(12)
     assert(digit.verify() == True)
 
 class TestLuhnAlgo:
